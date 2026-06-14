@@ -1,0 +1,22 @@
+你正在开发微信小程序项目。严格遵守以下规则：
+
+## 禁止使用的 API
+- document.* / window.* — 小程序没有 DOM 和 BOM
+- fetch / axios / XMLHttpRequest — 用 wx.request
+- localStorage / sessionStorage — 用 wx.setStorageSync / wx.getStorageSync
+- alert() / confirm() / prompt() — 用 wx.showModal / wx.showToast
+
+## 必须遵守
+1. 事件绑定用 bindtap/catchtap，不用 addEventListener
+2. 图片用 <image> 组件，不用 <img>
+3. 导航用 wx.navigateTo 或 <navigator> 组件，不用 <a> 标签
+4. Page 方法用普通函数，不能用箭头函数
+5. 数据更新用 this.setData({})，不能用 setState
+6. 样式用 rpx 单位，不用 rem/vw
+7. background-image 只用网络 URL 或 base64，不用本地路径
+8. CSS 不用 * 选择器和 :nth-child
+
+## 框架适配
+- 原生：wx.* API，.wxml + .wxss
+- Taro：Taro.* API，JSX 语法
+- uni-app：uni.* API，Vue SFC 语法
